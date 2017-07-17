@@ -1,0 +1,42 @@
+$yarn install --save
+$yarn start
+$yarn add redux-promise --save
+$yarn add axios --save
+yarn add react-sparklines --save
+
+
+Weather API
+http://openweathermap.org/forecast5
+
+*****************************
+MIDDLEWARE
+Are functions that take an action and depending on the action's type and payload or any other number of factors. The Middleware can choose to let the action, pass trough, it can manipulate the action or it can stop it all together, BEFORE they reach any reducer.
+Think of them as 'Gate Keepers, Doorman, Bouncer, etc'.
+
+*****************************
+Install Middleware Package To help handle AJAX requests within the app.
+$yarn add redux-promise --save
+
+*****************************
+AXIOS
+$yarn add axios --save
+
+Axios is a library that is solely made for making AJAX requests from the browser.
+
+*****************************
+API call Example:
+api.openweathermap.org/data/2.5/forecast?q={city name},{country code}
+
+Parameters: q city name and country code divided by comma, use ISO 3166 country codes
+
+Examples of API calls:
+api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml
+
+
+*****************************
+Graphics
+yarn add react-sparklines --save
+
+http://borisyankov.github.io/react-sparklines/
+
+ps: Per documentation sparklines expect an array of plain numbers

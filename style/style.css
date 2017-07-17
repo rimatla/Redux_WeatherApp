@@ -1,0 +1,24 @@
+body {
+    background: lightgray;
+}
+
+form {
+    margin-top: 2%;
+}
+
+table {
+    margin-top: 5%;
+    background: #ffffff;
+}
+
+td, th {
+    vertical-align: middle !important;
+    text-align: center !important;
+
+}
+
+
+/*Fix chart height issue*/
+svg {
+    height: 150px;
+}
