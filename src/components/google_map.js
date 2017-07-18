@@ -1,6 +1,4 @@
 //const google = window.google;
-
-
 import React, { Component } from 'react';
 
 class GoogleMap extends Component {
