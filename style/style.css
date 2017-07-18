@@ -22,3 +22,9 @@ td, th {
 svg {
     height: 150px;
 }
+
+/*Find the 1st td inside of each row and the first td and its child div*/
+td:first-of-type, td:first-of-type > div {
+    height: 200px;
+    width: 250px;
+}

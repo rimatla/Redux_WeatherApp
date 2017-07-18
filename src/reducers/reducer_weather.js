@@ -10,6 +10,7 @@ export default function (state = [], action) { //store weather data in an array 
             //handle the payload
             //concat doesn't change the existing array, instead creates a new one that contains the new and previous data
             return state.concat([action.payload.data]); //data parameter is retrieved from console log above
+
             //identical code in ES6 syntax
             //return [action.payload.data, ...state];
     }
