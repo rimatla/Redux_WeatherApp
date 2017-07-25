@@ -1,4 +1,5 @@
 import { FETCH_WEATHER } from '../actions/index';
+import { DELETE_CITY } from '../actions/index';
 
 //remember reducers are just functions
 export default function (state = [], action) { //store weather data in an array []
@@ -13,6 +14,8 @@ export default function (state = [], action) { //store weather data in an array 
 
             //identical code in ES6 syntax
             //return [action.payload.data, ...state];
+        case DELETE_CITY:
+            return state.filter( weather => weather.city.name !== action.payload.city.name);
     }
     return state;
 }

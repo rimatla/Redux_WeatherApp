@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Chart from '../components/chart';
 import GoogleMap from '../components/google_map';
-import _ from 'lodash';
+import { bindActionCreators } from 'redux';
+import { deleteCity } from '../actions/index';
 
 class WeatherList extends Component {
+
     renderWeather(cityData) {
         const name = cityData.city.name;
         const temps = cityData.list.map(weather => weather.main.temp);
         const pressures = cityData.list.map(weather => weather.main.pressure);
         const humidities = cityData.list.map(weather => weather.main.humidity);
+        const deleteCity = cityData.city.name;
 
         //coordinates
         /*const lon = cityData.city.coord.lon;
@@ -29,14 +32,16 @@ class WeatherList extends Component {
                 <td><Chart data={temps} color="orange" unit="˚"/></td>
                 <td><Chart data={pressures} color="green" unit="hPa"/></td>
                 <td><Chart data={humidities} color="black" unit="%"/></td>
+                <td><button onClick={() => this.props.deleteCity(cityData)} className="btn btn-danger">x</button></td>
             </tr>
         )
     }
     render() {
         return (
+        <div className="table-responsive">
             <table className="table table-hover">
                 <thead>
-                    <tr>
+                    <tr className=".col-sm-4">
                         <th>City</th>
                         <th>Temperature (F)</th>
                         <th>Pressure (hPa)</th>
@@ -44,9 +49,10 @@ class WeatherList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                {this.props.weather.map(this.renderWeather)}
+                {this.props.weather.map(this.renderWeather, this)}
                 </tbody>
             </table>
+        </div>
         )
     }
 }
@@ -61,11 +67,17 @@ function mapStateToProps(state) {
  */
 
 //ES6 Syntax
-function mapStateToProps({weather}) { //whenever passing just one argument
-    return { weather }; //whenever key and value are completely identical
+function mapStateToProps(state) {
+    return {
+        weather: state.weather
+    }
 }
 
-export default connect(mapStateToProps)(WeatherList);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({deleteCity}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherList);
 
 /*
  Per documentation sparklines expect an array of plain numbers
