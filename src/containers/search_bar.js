@@ -49,6 +49,5 @@ const mapDispatchToProps = dispatch => {
     return bindActionCreators({ fetchWeather }, dispatch);
 };
 
-//connect search-bar container to Redux
+//this container doesn't care about state ie:mapStateToProps therefore the first argument goes as null. mapDispatchToProps always goes in as a second argument
 export default connect(null, mapDispatchToProps)(SearchBar);
-//whenever passing a function ie: fetchWeather that needs to map or dispatch the props of a container, it always goes in as a second argument
