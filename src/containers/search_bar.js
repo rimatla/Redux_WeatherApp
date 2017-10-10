@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/index';
 
-//edit
-//export default class SearchBar extends Component {
 class SearchBar extends Component {
     //to set state up initialize it inside of the constructor
     constructor(props) {
@@ -46,13 +44,10 @@ class SearchBar extends Component {
         )
     }
 }
-
-//a controlled field is a form element where the value of the input is set by the state of our component, not the other way around.
-
-//bind action creator fetch weather as a property to this container
-function mapDispatchToProps(dispatch) {
+//Wire React + Redux bind action creator fetch weather as a property to this container
+const mapDispatchToProps = dispatch => {
     return bindActionCreators({ fetchWeather }, dispatch);
-}
+};
 
 //connect search-bar container to Redux
 export default connect(null, mapDispatchToProps)(SearchBar);
