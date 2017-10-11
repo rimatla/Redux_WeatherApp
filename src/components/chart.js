@@ -1,15 +1,3 @@
-/*
-Container or Component?
-Do you need to talk to Redux? No
-Answer: Component
-*/
-
-/*
-Class based or functional component?
-Do you need to use or manipulate state? No
-Answer: Functional
-*/
-
 import React from 'react';
 import {Sparklines, SparklinesLine, SparklinesReferenceLine} from 'react-sparklines';
 import _ from 'lodash';

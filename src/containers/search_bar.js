@@ -8,20 +8,20 @@ class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = { term: ''};
-        //take the existing function and bind it to THIS. Another option is to bind it w/ a fat arrow function in the onChange handler inside the form
+
         this.onInputChange = this.onInputChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
     }
 
-    onInputChange(event) { //all DOM event handlers, ie: onChange, onClick, onHover, come w/ the event object passed as a argument
+    onInputChange(e) {
         //console.log(event.target.value);
-        this.setState({term: event.target.value});
+        this.setState({term: e.target.value});
     }
 
     //submit form
-    onFormSubmit(event) {
-        event.preventDefault();
-
+    onFormSubmit(e) {
+        //prevent form default behavior aka page reload
+        e.preventDefault();
         //fetch weather data ie:call the action creator whenever user submits the form
         this.props.fetchWeather(this.state.term);
         //clear search input after user submit
@@ -29,7 +29,7 @@ class SearchBar extends Component {
     }
 
     render() {
-        return ( //prevent form default behavior aka page reload
+        return (
             <form onSubmit={this.onFormSubmit} className="input-group">
                 <input
                 placeholder="Get a five-day for your desired cities"

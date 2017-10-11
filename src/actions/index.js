@@ -4,7 +4,7 @@ const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KE
 export const FETCH_WEATHER = 'FETCH_WEATHER';
 export const DELETE_CITY = 'DELETE_CITY';
 
-//action creator
+//action creator fetch weather
 export const fetchWeather = (city) =>{
     const url = `${ROOT_URL}&q=${city},&units=imperial`; //set cities and temperature
     //AJAX call
@@ -14,7 +14,7 @@ export const fetchWeather = (city) =>{
         type: FETCH_WEATHER,
         payload: request //pass in the request, here we're returning the promise as a payload
     }
-}
+};
 
 //action creator Delete City
 export function deleteCity(city) {
@@ -23,8 +23,3 @@ export function deleteCity(city) {
         payload: city
     }
 }
-
-//middleware have the ability to stop or manipulate actions before they hit any reducers whatsoever
-//redux-promise unwrap a promise so we just have to work w/ straight data
-//stop the action, wait till the promise resolves amd pass data through
-

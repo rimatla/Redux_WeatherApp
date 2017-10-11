@@ -9,10 +9,10 @@ class WeatherList extends Component {
 
     renderWeather(cityData) {
         const name = cityData.city.name;
-        const temps = cityData.list.map(weather => weather.main.temp);
-        const pressures = cityData.list.map(weather => weather.main.pressure);
-        const humidities = cityData.list.map(weather => weather.main.humidity);
-        const deleteCity = cityData.city.name;
+        const temps = cityData.list.map(forecast => forecast.main.temp);
+        const pressures = cityData.list.map(forecast => forecast.main.pressure);
+        const humidities = cityData.list.map(forecast => forecast.main.humidity);
+        //const deleteCity = cityData.city.name;
 
         //coordinates
         /*const lon = cityData.city.coord.lon;
