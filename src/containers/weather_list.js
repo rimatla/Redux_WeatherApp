@@ -12,7 +12,6 @@ class WeatherList extends Component {
         const temps = cityData.list.map(forecast => forecast.main.temp);
         const pressures = cityData.list.map(forecast => forecast.main.pressure);
         const humidities = cityData.list.map(forecast => forecast.main.humidity);
-        //const deleteCity = cityData.city.name;
 
         //coordinates
         /*const lon = cityData.city.coord.lon;
@@ -57,20 +56,9 @@ class WeatherList extends Component {
     }
 }
 
-//wire up to reducer
-/*
-
-function mapStateToProps(state) {
-    return { weather: state.weather}; //weather was the key defined as state on our reducer index.js
-}
-
- */
-
 //ES6 Syntax
-function mapStateToProps(state) {
-    return {
-        weather: state.weather
-    }
+function mapStateToProps({weather}) {
+    return {weather};
 }
 
 function mapDispatchToProps(dispatch) {
@@ -78,14 +66,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeatherList);
-
-/*
- Per documentation sparklines expect an array of plain numbers
-
- Produce an array of numbers for:
- Temperature, pressure, humidity  that can be found:
- console.log('Action received', action);
- payload/data/city/list/main
-
- We need to get this data drilled inside to output a simple flat array to work w/ sparklines.
- */
