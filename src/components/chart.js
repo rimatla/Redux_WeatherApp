@@ -3,7 +3,7 @@ import {Sparklines, SparklinesLine, SparklinesReferenceLine} from 'react-sparkli
 import _ from 'lodash';
 
 //helper function
-function average(data) {
+let average = (data) => {
     //Calculate the average: lodash round and sum
     return _.round(_.sum(data) / data.length);
 }

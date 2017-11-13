@@ -5,21 +5,22 @@ export const FETCH_WEATHER = 'FETCH_WEATHER';
 export const DELETE_CITY = 'DELETE_CITY';
 
 //action creator fetch weather
-export const fetchWeather = (city) =>{
+export function fetchWeather (city) {
+    //const url = `${ROOT_URL}&q=${city},&units=imperial`; //set cities and temperature
     const url = `${ROOT_URL}&q=${city},&units=imperial`; //set cities and temperature
     //AJAX call
     const request = axios.get(url); //this will return a promise that can be handled by our installed library 'redux-promise'
-    //console.log('Request:', request);
+    console.log('Request:', request);
     return {
         type: FETCH_WEATHER,
         payload: request //pass in the request, here we're returning the promise as a payload
-    }
-};
+    };
+}
 
 //action creator Delete City
 export function deleteCity(city) {
     return {
         type: DELETE_CITY,
         payload: city
-    }
+    };
 }

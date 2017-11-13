@@ -12,17 +12,8 @@ class WeatherList extends Component {
         const temps = cityData.list.map(forecast => forecast.main.temp);
         const pressures = cityData.list.map(forecast => forecast.main.pressure);
         const humidities = cityData.list.map(forecast => forecast.main.humidity);
-
-        //coordinates
-        /*const lon = cityData.city.coord.lon;
-        const lat = cityData.city.coord.lat;*/
-
         //ES6 destructuring
         const { lon, lat } = cityData.city.coord;
-
-        //conversion to Fahrenheit to Celcius hack
-        //const temps = _.map(cityData.list.map(weather => weather.main.temp), (temp) => (temp -32) /1.8 );
-
 
         //console.log(temps);
         return (
