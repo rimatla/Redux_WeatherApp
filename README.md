@@ -10,6 +10,6 @@
 - npm i -D @babel/core@^7.0.0
 - npm install --save-dev @webpack-cli/migrate
 - npx webpack-cli migrate webpack.config.js
-- add * to `extensions: ['_', '.js', '.jsx']`
+- add * to `extensions: ['*', '.js', '.jsx']`
 
 ![alt text](app.png?raw=true 'app image')
